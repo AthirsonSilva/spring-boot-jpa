@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:sqlserver://db:14433;databaseName=spring_db;encrypt=false;trustServerCertificate=false;loginTimeout=30;
+    username: ${DB_USERNAME:-root}
+    password: ${DB_PASSWORD:-@Potter77}
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+      dialect: org.hibernate.dialect.SQLServerDialect
+      format_sql: true
+    show-sql: true
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    enabled: true
+    path: /swagger-ui.html

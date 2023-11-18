@@ -1,0 +1,38 @@
+version: "3.8"
+services:
+  api:
+    container_name: spring-mongodb
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongodb
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+    networks:
+      mongodb_network:
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data/db:/data/db
+    networks:
+      mongodb_network:
+
+  mongodb-express:
+    image: mongo-express
+    container_name: mongodb-express
+    restart: always
+    ports:
+      - "8081:8081"
+
+volumes:
+  data: { }
+
+networks:
+  mongodb_network:
