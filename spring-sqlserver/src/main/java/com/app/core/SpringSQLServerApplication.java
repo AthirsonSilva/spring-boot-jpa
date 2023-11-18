@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MssqlSpringApplication {
+public class SpringSQLServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MssqlSpringApplication.class, args);
+		SpringApplication.run(SpringSQLServerApplication.class, args);
 	}
 
 }
